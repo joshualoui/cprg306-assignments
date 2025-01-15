@@ -11,6 +11,8 @@ export default function Page() {
             {/* <h1>Web Dev 2 Week 2 Demo</h1> */}
             <p>The other page</p>
             <p>the sum of {a} and {b} is = {c}</p>
+            {/* <p>Link to week 2 Home page: <Link href="app">Weak 2 Home Page here</Link> </p> */}
+
         </main>
     )
 }
