@@ -11,6 +11,7 @@ export default function Page() {
 
       {/* New way of linking to week 2 page: */}
       <p>Link to week 2 page: <Link href="week-2">Weak 2 Page here</Link> </p>
+
     </div>
   );
 }

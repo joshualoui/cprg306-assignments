@@ -1,9 +1,7 @@
 export default function Title() {
-
+    return (
+        <h1>Week 2 Assignment</h1>
+    );
 }
-// import function Page()
-{
-<h1>Web Dev 2 Week 2 Demo</h1>
-} 
 
 
