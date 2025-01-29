@@ -25,9 +25,9 @@ export default function Page() {
         <div>
             <p>Quantity: {quantity}</p>
             <p>The increment and decrement counter</p>
-            <button onClick={increment} className="p-2 m-2 bg-blue-500 hover:bg-blue-300 active:bg-yellow-400 w-38 rounded" disabled={quantity>=20}>Add 1</button>
+            <button onClick={increment} className="p-2 m-2 text-green-400 bg-blue-500 hover:bg-blue-300  active:bg-yellow-400 w-38 rounded disabled:bg-gray-600 disabled:text-white" disabled={quantity>=20}>Add 1</button>
 
-            <button onClick={decrement} className="p-2 m-2 text-yellow-300 bg-red-500 hover:bg-red-300 active:bg-yellow-400 w-38 rounded" disabled={quantity<=1}>Minus 1</button>
+            <button onClick={decrement} className="p-2 m-2 text-yellow-300 bg-red-500 hover:bg-red-300 active:bg-yellow-400 w-38 rounded  disabled:bg-gray-600 disabled:text-white" disabled={quantity<=1}>Minus 1</button>
         </div>
       </main>
     );
