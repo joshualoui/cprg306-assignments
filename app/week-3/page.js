@@ -1,9 +1,14 @@
-export default function Page() {
-    return (
-      <main>
-        <h1>week 3</h1>
+import List from "./item-list.js";
+import Link from "next/link";
 
-        <p>stuff</p>
-      </main>
-    );
-  }
+export default function Page() {
+  return (
+    <main>
+      <h1 className="font-bold text-teal-600 text-4xl">Shopping List</h1>
+      <p className="hover:text-sky-400 underline">
+        <Link href="/">Home</Link>{" "}
+      </p>
+      <List />
+    </main>
+  );
+}
