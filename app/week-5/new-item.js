@@ -28,7 +28,6 @@ export default function Counter() {
 
   const handleNameChange = (event) => {
     setName(event.target.value);
-    //TODO: add alert when input is empty, right not its only when i delete the input
   };
 
   const handleCategoryChange = (event) => {
@@ -51,11 +50,10 @@ export default function Counter() {
 
   return (
     <main>
-      <h1>Week 5</h1>
       <form onSubmit={handleSubmit}>
         {/* Quantity Section */}
 
-        <div>
+        <div className="bg-gray-700 p-2 m-2 rounded max-w-fit">
           <p>Quantity: {quantity}</p>
           <button
             type="button"
@@ -77,43 +75,32 @@ export default function Counter() {
         </div>
 
         {/* Name Section */}
-        <div>
+        <div className="bg-gray-700 p-2 m-2 rounded max-w-fit">
           <label htmlFor="name">Name:</label>
           <input
             type="text"
             value={name}
             onChange={(event) => handleNameChange(event)}
-            className="text-green-400"
+            className="text-green-400 ml-3 p-2 rounded"
             placeholder="Enter item name"
           />
         </div>
         {/* Category Section */}
-
-        {/* TODO: Maybe its on hover?? change font to be visible */}
-        <div>
-          <label htmlFor="category">Category:</label>
-          <select onChange={(event) => handleCategoryChange(event)}>
-            <option className="text-green-500" value="Produce">
-              Produce
-            </option>
-            <option className="text-green-500" value="Dairy">
-              Dairy
-            </option>
-            <option className="text-green-500" value="Bakery">
-              Bakery
-            </option>
-            <option className="text-green-500" value="Meat">
-              Meat
-            </option>
-            <option className="text-green-500" value="Canned Goods">
-              Canned Goods
-            </option>
-            <option className="text-green-500" value="Dry Goods">
-              Dry Good
-            </option>
-            <option className="text-green-500" value="Household">
-              Household
-            </option>
+        <div className="bg-gray-700 p-3 m-2 rounded max-w-fit">
+          <label>Category:</label>
+          <select
+            value={category}
+            className="text-green-500 ml-3 p-2 rounded"
+            onChange={(event) => handleCategoryChange(event)}
+          >
+            <option disabled>Category</option>
+            <option value="Produce">Produce</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Bakery">Bakery</option>
+            <option value="Meat">Meat</option>
+            <option value="Canned Goods">Canned Goods</option>
+            <option value="Dry Goods">Dry Good</option>
+            <option value="Household">Household</option>
           </select>
         </div>
 
