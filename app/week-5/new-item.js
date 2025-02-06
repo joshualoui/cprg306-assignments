@@ -53,25 +53,27 @@ export default function Counter() {
       <form onSubmit={handleSubmit}>
         {/* Quantity Section */}
 
-        <div className="bg-gray-700 p-2 m-2 rounded max-w-fit">
+        <div className="bg-gray-700 p-2 m-2 rounded flex flex-col items-center justify-center">
           <p>Quantity: {quantity}</p>
-          <button
-            type="button"
-            onClick={increment}
-            className="p-2 m-2 text-green-400 bg-blue-500 hover:bg-blue-300  active:bg-yellow-400 w-38 rounded disabled:bg-gray-600 disabled:text-white"
-            disabled={quantity >= 20}
-          >
-            Add 1
-          </button>
+          <div className="flex items-center justify-center">
+            <button
+              type="button"
+              onClick={increment}
+              className="p-2 m-2 text-green-400 bg-blue-500 hover:bg-blue-300  active:bg-yellow-400 w-38 rounded disabled:bg-gray-600 disabled:text-white"
+              disabled={quantity >= 20}
+            >
+              Add 1
+            </button>
 
-          <button
-            type="button"
-            onClick={decrement}
-            className="p-2 m-2 text-yellow-300 bg-red-500 hover:bg-red-300 active:bg-yellow-400 w-38 rounded  disabled:bg-gray-600 disabled:text-white"
-            disabled={quantity <= 1}
-          >
-            Minus 1
-          </button>
+            <button
+              type="button"
+              onClick={decrement}
+              className="p-2 m-2 text-yellow-300 bg-red-500 hover:bg-red-300 active:bg-yellow-400 w-38 rounded  disabled:bg-gray-600 disabled:text-white"
+              disabled={quantity <= 1}
+            >
+              Minus 1
+            </button>
+          </div>
         </div>
 
         {/* Name Section */}
@@ -86,7 +88,7 @@ export default function Counter() {
           />
         </div>
         {/* Category Section */}
-        <div className="bg-gray-700 p-3 m-2 rounded max-w-fit">
+        <div className="bg-gray-700 p-3 m-2 rounded">
           <label>Category:</label>
           <select
             value={category}
@@ -105,12 +107,14 @@ export default function Counter() {
         </div>
 
         {/* submit button */}
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-300 active:bg-green-400 w-38 rounded"
-        >
-          Submit{" "}
-        </button>
+        <div className="flex items-center justify-center">
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-300 active:bg-green-400 w-full rounded-xl p-2 ml-2"
+          >
+            Submit{" "}
+          </button>
+        </div>
       </form>
     </main>
   );
