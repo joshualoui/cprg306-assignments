@@ -36,7 +36,7 @@ export default function Page() {
         </Link>{" "}
       </p>
       <p>
-        Link to week 5 page--{">"}{" "}
+        Link to week 6 page--{">"}{" "}
         <Link className="hover:text-sky-400 underline" href="week-6">
           Here
         </Link>{" "}
