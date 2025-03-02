@@ -5,35 +5,49 @@ import { useState } from "react";
 
 export default function List() {
   const [sortBy, setSortBy] = useState("name");
-  const [itemList, setItemList] = useState(itemData);
-  let newItemList = [...itemData];
-  let list = [...itemList];
-  //newItemList.sort((a, b) => a.name.localeCompare(b.name));
+  const [toggleName, setToggleName] = useState(false);
+  const [toggleCategory, setToggleCategory] = useState(false);
 
-  const handleClick = (sort) => {
-    if (sort === "name") {
-      const sortedList = [
-        ...itemList.sort((a, b) => a.name.localeCompare(b.name)),
-      ];
-      setItemList(sortedList);
-    }
+  // itemData.sort((a, b) => a.name.localeCompare(b.name));
+  // itemData.sort((a, b) => a.category.localeCompare(b.category));
+
+  const handleClickName = (click) => {
+    itemData.sort((a, b) => a.name.localeCompare(b.name));
+    setSortBy(click);
+  };
+
+  const handleClickCategory = (click) => {
+    itemData.sort((a, b) => a.category.localeCompare(b.category));
+    setSortBy(click);
   };
 
   return (
     <main>
       <button
-        onClick={() => handleClick("name")}
-        className="p-2 m-2 text-teal-600 bg-slate-700  hover:bg-gray-800  active:bg-blue-700 w-38 rounded disabled:bg-gray-600 disabled:text-white"
+        onClick={() => {
+          handleClickName("name");
+          setToggleName(true);
+          setToggleCategory(false);
+        }}
+        className={`p-2 m-2 text-teal-600 ${
+          toggleName ? "bg-blue-700" : "bg-slate-800"
+        } hover:bg-gray-600 w-38 rounded`}
       >
         Name
       </button>
-      {/* <button
-        onClick={() => handleClick("catgeory")}
-        className="p-2 m-2 text-teal-600 bg-slate-700 hover:bg-gray-800  active:bg-blue-700 w-38 rounded disabled:bg-gray-600 disabled:text-white"
+      <button
+        onClick={() => {
+          handleClickCategory("category");
+          setToggleCategory(true);
+          setToggleName(false);
+        }}
+        className={`p-2 m-2 text-teal-600 ${
+          toggleCategory ? " bg-blue-700 " : "bg-gray-800"
+        } hover:bg-gray-600 w-38 rounded`}
       >
         Category
-      </button> */}
-      {newItemList.map((item) => (
+      </button>
+      {itemData.map((item) => (
         <Item
           key={item.id}
           name={item.name}
