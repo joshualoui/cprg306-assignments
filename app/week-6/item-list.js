@@ -1,23 +1,39 @@
+"use client";
 import Item from "./item.js";
 import itemData from "./items.json";
 import { useState } from "react";
 
 export default function List() {
   const [sortBy, setSortBy] = useState("name");
-  const newItemList = [...itemData];
+  const [itemList, setItemList] = useState(itemData);
+  let newItemList = [...itemData];
+  let list = [...itemList];
+  //newItemList.sort((a, b) => a.name.localeCompare(b.name));
 
-  newItemList.sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
+  const handleClick = (sort) => {
+    if (sort === "name") {
+      const sortedList = [
+        ...itemList.sort((a, b) => a.name.localeCompare(b.name)),
+      ];
+      setItemList(sortedList);
     }
-    if (a.name > b.name) {
-      return 1;
-    }
-    return 0;
-  });
+  };
+
   return (
-    <div>
-      {itemData.map((item) => (
+    <main>
+      <button
+        onClick={() => handleClick("name")}
+        className="p-2 m-2 text-teal-600 bg-slate-700  hover:bg-gray-800  active:bg-blue-700 w-38 rounded disabled:bg-gray-600 disabled:text-white"
+      >
+        Name
+      </button>
+      {/* <button
+        onClick={() => handleClick("catgeory")}
+        className="p-2 m-2 text-teal-600 bg-slate-700 hover:bg-gray-800  active:bg-blue-700 w-38 rounded disabled:bg-gray-600 disabled:text-white"
+      >
+        Category
+      </button> */}
+      {newItemList.map((item) => (
         <Item
           key={item.id}
           name={item.name}
@@ -25,6 +41,6 @@ export default function List() {
           category={item.category}
         />
       ))}
-    </div>
+    </main>
   );
 }
