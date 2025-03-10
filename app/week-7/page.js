@@ -19,7 +19,7 @@ export default function Page() {
         <Link href="/">Home</Link>{" "}
       </p>
       <Counter onAddItem={handleAddItem} />
-      <List newItem={items} />
+      <List items={items} />
     </main>
   );
 }

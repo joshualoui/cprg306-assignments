@@ -1,19 +1,19 @@
 "use client";
 import Item from "./item.js";
-import itemData from "./items.json";
+//import itemData from "./items.json";
 import { useState } from "react";
 
-export default function List() {
+export default function List({ items }) {
   const [sortBy, setSortBy] = useState("name");
   const [toggleName, setToggleName] = useState(false);
   const [toggleCategory, setToggleCategory] = useState(false);
 
   //created new array to not change orignial json.
-  const sortedItemName = [...itemData].sort((a, b) =>
+  const sortedItemName = [...items].sort((a, b) =>
     a.name.localeCompare(b.name)
   );
 
-  const sortedItemCategory = [...itemData].sort((a, b) =>
+  const sortedItemCategory = [...items].sort((a, b) =>
     a.category.localeCompare(b.category)
   );
 
@@ -27,7 +27,7 @@ export default function List() {
         }}
         className={`p-2 m-2 text-teal-600 ${
           toggleName ? "bg-blue-700" : "bg-slate-800"
-        } hover:bg-gray-600 w-38 rounded`}
+        } `}
       >
         Name
       </button>
@@ -40,7 +40,7 @@ export default function List() {
         }}
         className={`p-2 m-2 text-teal-600 ${
           toggleCategory ? "bg-blue-700" : "bg-slate-800"
-        } hover:bg-gray-600 w-38 rounded`}
+        } `}
       >
         Category
       </button>
