@@ -16,9 +16,6 @@ export default function Counter({ onAddItem }) {
       alert("Shopping list item cannot be empty.");
     } else {
       onAddItem(item);
-      alert(
-        `${quantity} ${name} was added to the list from the ${category} category.`
-      );
     }
 
     //reset form

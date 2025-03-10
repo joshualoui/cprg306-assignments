@@ -47,7 +47,7 @@ export default function List({ items }) {
 
       {(sortBy === "name" ? sortedItemName : sortedItemCategory).map((item) => (
         <Item
-          key={item.id}
+          key={`${item.id}-${item.name}`}
           name={item.name}
           quantity={item.quantity}
           category={item.category}
