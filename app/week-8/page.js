@@ -19,9 +19,9 @@ export default function Page() {
       <p className="hover:text-sky-400 underline">
         <Link href="/">Home</Link>{" "}
       </p>
+      <MealIdeas ingredient="beef" />
       <Counter onAddItem={handleAddItem} />
       <List items={items} />
-      <MealIdeas ingredient="beef" />
     </main>
   );
 }

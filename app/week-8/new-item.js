@@ -51,7 +51,7 @@ export default function Counter({ onAddItem }) {
       <form onSubmit={handleSubmit}>
         {/* Quantity Section */}
 
-        <div className="bg-gray-700 p-2 m-2 rounded flex flex-col items-center justify-center">
+        <div className="bg-gray-700 p-2 m-2 rounded flex flex-col items-left justify-center max-w-fit">
           <p>Quantity: {quantity}</p>
           <div className="flex items-center justify-center">
             <button
@@ -86,7 +86,7 @@ export default function Counter({ onAddItem }) {
           />
         </div>
         {/* Category Section */}
-        <div className="bg-gray-700 p-3 m-2 rounded">
+        <div className="bg-gray-700 p-3 m-2 rounded max-w-fit">
           <label>Category:</label>
           <select
             value={category}
@@ -105,7 +105,7 @@ export default function Counter({ onAddItem }) {
         </div>
 
         {/* submit button */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center w-1/12">
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-300 active:bg-green-400 w-full rounded-xl p-2 ml-2"

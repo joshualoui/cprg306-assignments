@@ -30,20 +30,17 @@ export default function MealIdeas({ ingredient }) {
         Meal Ideas for {ingredient}
       </h1>
       <div>
-        <ul>
-          <li>Render component pieces</li>
-        </ul>
-        <ul>
-          {meals.length > 0 ? (
-            meals.map((food) => (
+        {meals.length > 0 ? (
+          <ul>
+            {meals.map((food) => (
               <li key={food.idMeal}>
                 <p>{food.strMeal}</p>
               </li>
-            ))
-          ) : (
-            <p>No meals found for "{ingredient}".</p>
-          )}
-        </ul>
+            ))}
+          </ul>
+        ) : (
+          <p>No meals found for "{ingredient}".</p>
+        )}
       </div>
     </main>
   );
