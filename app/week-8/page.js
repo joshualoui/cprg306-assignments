@@ -32,10 +32,14 @@ export default function Page() {
       <p className="hover:text-sky-400 underline">
         <Link href="/">Home</Link>{" "}
       </p>
-      <Counter onAddItem={handleAddItem} />
-      <div className="flex flex-row">
-        <List onItemSelect={handleItemSelect} items={items} />
-        <MealIdeas ingredient={selectedItemName} />
+      <div className="flex">
+        <div className="flex-2">
+          <Counter onAddItem={handleAddItem} />
+          <List onItemSelect={handleItemSelect} items={items} />
+        </div>
+        <div className="flex pl-20">
+          <MealIdeas ingredient={selectedItemName} />
+        </div>
       </div>
     </main>
   );

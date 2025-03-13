@@ -108,7 +108,7 @@ export default function Counter({ onAddItem }) {
         <div className="flex items-center justify-center w-1/12">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-300 active:bg-green-400 w-full rounded-xl p-2 ml-2"
+            className="bg-blue-500 hover:bg-blue-300 active:bg-green-400 w-max rounded-xl p-2 ml-12"
           >
             Submit{" "}
           </button>
