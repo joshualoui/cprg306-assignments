@@ -3,7 +3,7 @@ import Item from "./item.js";
 //import itemData from "./items.json";
 import { useState } from "react";
 
-export default function List({ items }) {
+export default function List({ items, onItemSelect }) {
   const [sortBy, setSortBy] = useState("name");
   const [toggleName, setToggleName] = useState(false);
   const [toggleCategory, setToggleCategory] = useState(false);
@@ -47,6 +47,7 @@ export default function List({ items }) {
 
       {(sortBy === "name" ? sortedItemName : sortedItemCategory).map((item) => (
         <Item
+          onSelect={() => onItemSelect(item)}
           key={`${item.id}-${item.name}`}
           name={item.name}
           quantity={item.quantity}

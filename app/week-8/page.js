@@ -8,6 +8,18 @@ import { useState } from "react";
 
 export default function Page() {
   const [items, setItems] = useState(itemsData);
+  const [selectedItemName, setSelectedItemName] = useState(null);
+
+  const handleItemSelect = (item) => {
+    const cleanName = item
+      .split(" ")[0]
+      .trim()
+      .replace(
+        /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+        ""
+      );
+    setSelectedItemName(cleanName);
+  };
 
   const handleAddItem = (item) => {
     setItems([...items, item]);
@@ -19,7 +31,7 @@ export default function Page() {
       <p className="hover:text-sky-400 underline">
         <Link href="/">Home</Link>{" "}
       </p>
-      <MealIdeas ingredient="beef" />
+      <MealIdeas ingredient={selectedItemName} />
       <Counter onAddItem={handleAddItem} />
       <List items={items} />
     </main>
