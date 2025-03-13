@@ -13,6 +13,7 @@ export default function Page() {
   const handleItemSelect = (item) => {
     const cleanName = item
       .split(" ")[0]
+      .split(",")[0]
       .trim()
       .replace(
         /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
@@ -31,12 +32,11 @@ export default function Page() {
       <p className="hover:text-sky-400 underline">
         <Link href="/">Home</Link>{" "}
       </p>
-      <div>
-        <MealIdeas ingredient={selectedItemName} />
-        <MealIdeas ingredient="chicken" />
-        <List onItemSelect={handleItemSelect} items={items} />
-      </div>
       <Counter onAddItem={handleAddItem} />
+      <div className="flex flex-row">
+        <List onItemSelect={handleItemSelect} items={items} />
+        <MealIdeas ingredient={selectedItemName} />
+      </div>
     </main>
   );
 }

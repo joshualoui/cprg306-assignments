@@ -30,7 +30,7 @@ export default function MealIdeas({ ingredient }) {
         Meal Ideas for {ingredient}
       </h1>
       <div>
-        {meals == !null ? (
+        {meals != null ? (
           <ul>
             {meals.map((food) => (
               <li key={food.idMeal}>
