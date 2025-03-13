@@ -47,7 +47,8 @@ export default function List({ items, onItemSelect }) {
 
       {(sortBy === "name" ? sortedItemName : sortedItemCategory).map((item) => (
         <Item
-          onSelect={() => onItemSelect(item)}
+          onSelect={onItemSelect}
+          //onSelect={() => onItemSelect(item)}
           key={`${item.id}-${item.name}`}
           name={item.name}
           quantity={item.quantity}

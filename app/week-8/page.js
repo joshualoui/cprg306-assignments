@@ -31,9 +31,12 @@ export default function Page() {
       <p className="hover:text-sky-400 underline">
         <Link href="/">Home</Link>{" "}
       </p>
-      <MealIdeas ingredient={selectedItemName} />
+      <div>
+        <MealIdeas ingredient={selectedItemName} />
+        <MealIdeas ingredient="chicken" />
+        <List onItemSelect={handleItemSelect} items={items} />
+      </div>
       <Counter onAddItem={handleAddItem} />
-      <List items={items} />
     </main>
   );
 }
