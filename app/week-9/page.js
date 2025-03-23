@@ -7,10 +7,13 @@ export default function Page() {
 
   return (
     <main>
-      <p>
+      <div>
         {user ? (
           <div>
             {" "}
+            <h1 className="font-bold text-teal-600 text-4xl">
+              Your GitHub information
+            </h1>
             {user.displayName} do you want to:{" "}
             <button
               className="hover:text-sky-400 underline"
@@ -21,20 +24,27 @@ export default function Page() {
           </div>
         ) : (
           <div>
+            <h1 className="font-bold text-teal-600 text-4xl">Shopping List</h1>
             <button
               className="hover:text-sky-400 underline"
               onClick={gitHubSignIn}
             >
               Sign In
-            </button>
+            </button>{" "}
+            to view the shopping list!
           </div>
         )}
-      </p>
+      </div>
       {user ? (
         <div>
-          Logged in as {user.displayName}. Email: {user.email}. Last time you
-          signed in was: {user.metadata.lastSignInTime}. Your pfp is
-          <img src={user.photoURL} /> Come view our{" "}
+          Logged in as: {user.displayName}. <p>Email: {user.email}.</p> Last
+          time you signed in was: {user.metadata.lastSignInTime}.{" "}
+          <p>
+            {" "}
+            Your GitHub picture is
+            <img src={user.photoURL} />
+          </p>{" "}
+          Come view our{" "}
           <Link
             className="hover:text-sky-400 underline"
             href="week-9/shopping-list"
