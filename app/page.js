@@ -59,6 +59,12 @@ export default function Page() {
           Here
         </Link>{" "}
       </p>
+      <p>
+        Link to week 10 page--{">"}{" "}
+        <Link className="hover:text-sky-400 underline" href="week-10">
+          Here
+        </Link>{" "}
+      </p>
     </div>
   );
 }
