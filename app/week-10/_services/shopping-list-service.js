@@ -3,12 +3,15 @@ import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
 export const getItems = async (id) => {
   try {
-    const itemsCollection = collection(db, "items", id);
+    const itemsCollection = collection(db, "users", id, "items");
     const itemsSnapshot = await getDocs(itemsCollection);
-    const itemsList = itemsSnapshot.docs.map((doc) => doc.data());
+    const itemsList = itemsSnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
     return itemsList;
   } catch (error) {
     console.error("Error getting items: ", error);
+    throw error;
   }
-  throw error;
 };
