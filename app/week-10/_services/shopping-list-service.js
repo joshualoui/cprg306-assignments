@@ -15,3 +15,15 @@ export const getItems = async (id) => {
     throw error;
   }
 };
+
+//TODO: Implement the addItem function. Check if it works.
+export const addItem = async (id, item) => {
+  try {
+    const itemsCollection = collection(db, "users", id, "items");
+    const newItem = await addDoc(itemsCollection, item);
+    return newItem.id;
+  } catch (error) {
+    console.error("Error adding item: ", error);
+    throw error;
+  }
+};

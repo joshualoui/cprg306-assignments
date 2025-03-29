@@ -3,12 +3,12 @@ import MealIdeas from "./meal-ideas.js";
 import List from "./item-list.js";
 import Link from "next/link";
 import Counter from "../../week-8/new-item.js";
-import itemsData from "./items.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context";
+import { getItems, addItem } from "../_services/shopping-list-service.js";
 
 export default function Page() {
-  const [items, setItems] = useState(itemsData);
+  const [items, setItems] = useState([]);
   const [selectedItemName, setSelectedItemName] = useState(null);
   const { user } = useUserAuth();
 
@@ -24,9 +24,28 @@ export default function Page() {
     setSelectedItemName(cleanName);
   };
 
-  const handleAddItem = (item) => {
-    setItems([...items, item]);
+  const handleAddItem = async (item) => {
+    try {
+      const itemId = await addItem(user.uid, item);
+      const newItemId = { id: itemId, ...item };
+      setItems((prevItems) => [...prevItems, newItemId]);
+    } catch (error) {
+      console.error("Error adding item: ", error);
+    }
   };
+
+  const loadItems = async () => {
+    if (user) {
+      const items = await getItems(user.uid);
+      setItems(items);
+    } else {
+      setItems([]);
+    }
+  };
+
+  useEffect(() => {
+    loadItems();
+  }, [user]);
 
   if (!user) {
     return (
