@@ -26,9 +26,11 @@ export default function Page() {
 
   const handleAddItem = async (item) => {
     try {
-      const itemId = await addItem(user.uid, item);
-      const newItemId = { id: itemId, ...item };
-      setItems((prevItems) => [...prevItems, newItemId]);
+      const itemId = await addItem(user.uid, item); //gets item id from firestore.
+      const newItemId = { id: itemId, ...item }; //adds the item to the list with the firestore id.
+      setItems((prevItems) => [...prevItems, newItemId]); //previtems is the current list. newItemId adds the new item to the list with firestore id.
+      //couldnt just setItems(newItemId) because it would replace the entire list with the new item.
+      //needed to keep the old items and add the new item to the list, used spreader operator to do that.
     } catch (error) {
       console.error("Error adding item: ", error);
     }
