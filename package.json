@@ -13,6 +13,8 @@
     "encoding": "^0.1.13",
     "firebase": "^11.5.0",
     "next": "15.1.4",
+    "pokemon-tcg-sdk-typescript": "^1.3.4",
+    "pokemontcgsdk": "^2.0.0",
     "qs": "^6.14.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

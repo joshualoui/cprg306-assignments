@@ -8,26 +8,21 @@ export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
 
-  const fetchCards = async (name) => {
-    try {
-      const res = await fetch(
-        `https://api.pokemontcg.io/v2/cards?q=name:${name}`
-      );
-      const pokemon = await res.json();
-      setCards(pokemon.data); // Set the fetched cards
-    } catch (error) {
-      console.error("Error fetching cards:", error);
-      setCards([]); // Reset cards in case of an error
-    }
-  };
-
   useEffect(() => {
     if (searchTerm.length > 1) {
-      fetchCards(searchTerm);
+      fetchCards(searchTerm, setCards);
     } else {
       setCards([]);
     }
   }, [searchTerm]);
+
+  // useEffect(() => {
+  //   if (searchTerm.length > 1) {
+  //     fetchCards(searchTerm).then(setCards);
+  //   } else {
+  //     setCards([]);
+  //   }
+  // }, [searchTerm]);
 
   return (
     <main>
