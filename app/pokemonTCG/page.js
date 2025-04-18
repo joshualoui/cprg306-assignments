@@ -7,22 +7,40 @@ import axios from "axios";
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [cards, setCards] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  //display 10 cards on 1 page and change each search or page change
 
   useEffect(() => {
     if (searchTerm.length > 1) {
-      fetchCards(searchTerm, setCards);
+      fetchCards(searchTerm, page, 10).then(({ cards, totalCount }) => {
+        setCards(cards);
+        setTotalPages(Math.ceil(totalCount / 10));
+      });
     } else {
       setCards([]);
+      setPage(1);
+      setTotalPages(1);
     }
+  }, [searchTerm, page]);
+
+  //reset the page to 1 when the search term changes
+  useEffect(() => {
+    setPage(1);
   }, [searchTerm]);
 
-  // useEffect(() => {
-  //   if (searchTerm.length > 1) {
-  //     fetchCards(searchTerm).then(setCards);
-  //   } else {
-  //     setCards([]);
-  //   }
-  // }, [searchTerm]);
+  const handleNextPage = () => {
+    if (page < totalPages) {
+      setPage(page + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+    }
+  };
 
   return (
     <main>
@@ -39,7 +57,22 @@ export default function HomePage() {
           </div>
         ))}
       </div>
-      {/* <CardList cards={cards}/> */}
+      <div>
+        <button
+          className={`p-2 m-2 rounded-full ${"bg-[#3b4cca]"} `}
+          onClick={handlePrevPage}
+          disabled={page === 1}
+        >
+          Previous
+        </button>
+        <button
+          className={`p-2 m-2 rounded-full ${"bg-[#3b4cca]"} `}
+          onClick={handleNextPage}
+          disabled={page === totalPages}
+        >
+          Next
+        </button>
+      </div>
     </main>
   );
 }

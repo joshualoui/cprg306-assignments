@@ -1,26 +1,22 @@
-// const fetchCards = async (name, setCards) => {
-//   try {
-//     const apiCall = await fetch(
-//       `https://api.pokemontcg.io/v2/cards?q=name:${name}`
-//     );
-//     const pokemon = await apiCall.json();
-//     setCards(pokemon.data);
-//   } catch (error) {
-//     console.error("Error fetching cards:", error);
-//     setCards([]);
-//   }
-// };
-// export default fetchCards;
-
 import pokemon from "../lib/pokemonClient";
 
-const fetchCards = async (name, setCards) => {
+const fetchCards = async (name, page = 1, pageSize = 10) => {
   try {
-    const result = await pokemon.card.where({ q: `name:${name}` });
-    setCards(result.data);
+    const result = await pokemon.card.where({
+      q: `name:${name}`,
+      page,
+      pageSize,
+    });
+    return {
+      cards: result.data,
+      totalCount: result.totalCount,
+    };
   } catch (error) {
     console.error("Error fetching cards:", error);
-    setCards([]);
+    return {
+      cards: [],
+      totalCount: 0,
+    };
   }
 };
 
