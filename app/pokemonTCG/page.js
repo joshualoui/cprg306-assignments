@@ -14,9 +14,9 @@ export default function HomePage() {
 
   useEffect(() => {
     if (searchTerm.length > 1) {
-      fetchCards(searchTerm, page, 10).then(({ cards, totalCount }) => {
+      fetchCards(searchTerm, page, 20).then(({ cards, totalCount }) => {
         setCards(cards);
-        setTotalPages(Math.ceil(totalCount / 10));
+        setTotalPages(Math.ceil(totalCount / 20));
       });
     } else {
       setCards([]);
@@ -44,29 +44,43 @@ export default function HomePage() {
 
   return (
     <main>
-      <h1 className="font-bold">Pokémon TCG Display</h1>
+      <h1 className="font-bold mt-4 mb-4 text-center text-yellow-300 shadow-lg shadow-blue-700 text-6xl ">
+        Pokémon TCG Display
+      </h1>
 
       {/* <Card /> */}
-      <SearchBar onSearch={setSearchTerm} />
+      <div className="flex justify-center items-center mt-8 mb-4">
+        <SearchBar onSearch={setSearchTerm} />
+      </div>
+      <div className="text-center text-gray-400 mb-4">
+        <p>Hint:</p>
+        <p>
+          To search for any card that starts with "Mew" add a (*) like " Mew* ".
+        </p>
+        <p>
+          To search for any card that starts with "Pi" and ends with "chu" use
+          "Pi*chu"
+        </p>
+      </div>
 
-      <div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 p-4">
         {cards.map((card) => (
           <div key={card.id}>
+            <p className="mb-2 text-center font-bold text-2xl">{card.name}</p>
             <img src={card.images.large} />
-            <p>{card.name}</p>
           </div>
         ))}
       </div>
-      <div>
+      <div className="flex justify-center items-center mt-4 mb-4 ">
         <button
-          className={`p-2 m-2 rounded-full ${"bg-[#3b4cca]"} `}
+          className={`p-2 m-2 rounded-lg  bg-blue-700  hover:bg-blue-500 w-1/12`}
           onClick={handlePrevPage}
           disabled={page === 1}
         >
           Previous
         </button>
         <button
-          className={`p-2 m-2 rounded-full ${"bg-[#3b4cca]"} `}
+          className={`p-2 m-2 rounded-lg bg-blue-700 hover:bg-blue-500 w-1/12`}
           onClick={handleNextPage}
           disabled={page === totalPages}
         >

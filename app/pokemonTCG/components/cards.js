@@ -1,6 +1,6 @@
 import pokemon from "../lib/pokemonClient";
 
-const fetchCards = async (name, page = 1, pageSize = 10) => {
+const fetchCards = async (name, page = 1, pageSize = 20) => {
   try {
     const result = await pokemon.card.where({
       q: `name:${name}`,
