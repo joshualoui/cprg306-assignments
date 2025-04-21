@@ -56,19 +56,19 @@ export default function HomePage() {
         <div className="w-1/3 flex justify-center">
           <SearchBar onSearch={setSearchTerm} />
         </div>
-        <div className="w-1/3 flex justify-end text-slate-800">
+        <div className="w-1/3 flex justify-end text-slate-900">
           Page {page} of {totalPages}
         </div>
       </div>
 
-      <div className="text-center text-yellow-300 mb-4">
+      <div className="text-center text-slate-900 mb-4">
         <p>Hint:</p>
         <p>
           To search for any card that starts with "Mew" add a (*) like " Mew* ".
         </p>
         <p>
           To search for any card that starts with "Pi" and ends with "chu" use
-          "Pi*chu"
+          "Pi*chu".
         </p>
       </div>
 

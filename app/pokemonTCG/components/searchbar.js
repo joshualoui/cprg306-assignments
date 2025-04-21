@@ -7,7 +7,7 @@ const SearchBar = ({ onSearch }) => {
       type="text"
       placeholder="Search Pokémon cards..."
       onChange={handleChange}
-      className="border rounded p-2 text-blue-700"
+      className="border rounded p-2 text-blue-700 font-semibold outline-double"
     />
   );
 };
