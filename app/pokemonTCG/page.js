@@ -62,13 +62,15 @@ export default function HomePage() {
       </div>
 
       <div className="text-center text-slate-900 mb-4">
-        <p>Hint:</p>
+        <p>!!! Hint exact match searching !!!</p>
+        <p>However you can:</p>
         <p>
-          To search for any card that starts with "Mew" add a (*) like " Mew* ".
+          1) Search for any card that starts with "Pi" use ' * ' afterwards (For
+          example " Pi* ").
         </p>
         <p>
-          To search for any card that starts with "Pi" and ends with "chu" use
-          "Pi*chu".
+          2) Search for any card that starts with "Pi" and ends with "chu" (For
+          example " Pi*chu ").
         </p>
       </div>
 
@@ -78,7 +80,10 @@ export default function HomePage() {
             <p className="mb-2 text-yellow-300 bg-slate-700 rounded-lg text-center font-bold text-2xl">
               {card.name}
             </p>
-            <img src={card.images.large} />
+            <img
+              src={card.images.large}
+              className="w-full duration-300 hover:scale-125"
+            />
           </div>
         ))}
       </div>
