@@ -65,12 +65,15 @@ export default function Page() {
           Here
         </Link>{" "}
       </p>
-      <p>
-        FINAL PROJECT POKEMON TCG DISPLAY--{">"}{" "}
-        <Link className="hover:text-sky-400 underline" href="pokemonTCG">
-          Here
-        </Link>{" "}
-      </p>
+      <div className="text-center text-2xl font-bold text-blue-500 mt-4 mb-4">
+        <p>FINAL PROJECT POKEMON TCG DISPLAY</p>
+        <p>
+          {" "}
+          <Link className="hover:text-yellow-300 underline" href="pokemonTCG">
+            Click Here!
+          </Link>{" "}
+        </p>
+      </div>
     </div>
   );
 }

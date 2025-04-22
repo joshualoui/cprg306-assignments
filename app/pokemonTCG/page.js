@@ -61,16 +61,16 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="text-center text-slate-900 mb-4">
-        <p>!!! Hint exact match searching !!!</p>
+      <div className="text-center font-semibold text-slate-900 mb-4">
+        <p>Hint exact match searching only. Spelling matters (Ex. Pikachu)</p>
         <p>However you can:</p>
         <p>
-          1) Search for any card that starts with "Pi" use ' * ' afterwards (For
-          example " Pi* ").
+          1) Search for any card that starts with "Pi" use " * " afterwards (Ex.
+          "Pi*").
         </p>
         <p>
-          2) Search for any card that starts with "Pi" and ends with "chu" (For
-          example " Pi*chu ").
+          2) Search for any card that starts with "Pi" and ends with "chu" (Ex.
+          "Pi*chu").
         </p>
       </div>
 
